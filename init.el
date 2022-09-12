@@ -104,8 +104,13 @@
 (use-package ledger-mode)
 
 ;;--------------------------------------------------
-;; 
+;; Counsel
+;; Will show the key shortcut of an M-x command if it exists
 ;;..................................................
+(use-package counsel
+  :config
+  (when (commandp 'counsel-M-x)
+  (global-set-key [remap execute-extended-command] #'counsel-M-x)))
 
 ;;--------------------------------------------------
 ;; 
@@ -117,7 +122,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(flycheck rustic rustic-mode company company-mode use-package rust-mode magit ledger-mode ivy dap-mode)))
+   '(counsel counsel-mode flycheck rustic rustic-mode company company-mode use-package rust-mode magit ledger-mode ivy dap-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
