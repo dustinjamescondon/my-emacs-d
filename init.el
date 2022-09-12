@@ -20,7 +20,7 @@
   (ivy-mode 1)
  )
 
-(require 'magit)
+(use-package magit)
 
 ;;--------------------------------------------------
 ;; Colors
@@ -115,12 +115,27 @@
 ;;--------------------------------------------------
 ;; 
 ;;..................................................
+;;--------------------------------------------------
+;; Org-mode
+;;..................................................
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/org")
+(setq org-agenda-files (directory-files-recursively org-directory "org$"))
+;; This determines the style of line numbers in effect. If set to `nil', line
+;; numbers are disabled. For relative line numbers, set this to `relative'.
+(setq display-line-numbers-type t)
+(setq org-startup-indented t) ;; Indents the headers of .org files
+(setq org-duration-format (quote h:mm)) ;; Removes days from time durations
+(setq org-refile-targets '((nil :maxlevel . 3)
+			   (org-agenda-files :maxlevel . 3)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t)
  '(package-selected-packages
    '(counsel counsel-mode flycheck rustic rustic-mode company company-mode use-package rust-mode magit ledger-mode ivy dap-mode)))
 (custom-set-faces
