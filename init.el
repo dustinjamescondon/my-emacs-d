@@ -113,14 +113,17 @@
   (global-set-key [remap execute-extended-command] #'counsel-M-x)))
 
 ;;--------------------------------------------------
-;; 
+;; Org stuff
 ;;..................................................
+(add-hook 'org-mode-hook 'org-indent-mode)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-hide-leading-stars t)
  '(package-selected-packages
    '(counsel counsel-mode flycheck rustic rustic-mode company company-mode use-package rust-mode magit ledger-mode ivy dap-mode)))
 (custom-set-faces
